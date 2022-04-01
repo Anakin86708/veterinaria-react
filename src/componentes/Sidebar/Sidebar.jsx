@@ -1,15 +1,10 @@
 import React, { StrictMode, useState } from "react";
 import './Sidebar.css';
 
-export function Sidebar(props) {
+const Sidebar =  function (props) {
     const title = props.title;
-    const servicesNames = [
-        "Clientes",
-        "Animais",
-        "Espécies",
-        "Consultas",
-        "Veterinários"
-    ]
+    const mapServices = props.mapServices;
+    const servicesNames = [...mapServices.keys()];
     const serviceItems = servicesNames.map((name, index) =>
         <ServiceItem name={name} onClick={() => props.onClickOnService(name)} />
     );
@@ -18,18 +13,18 @@ export function Sidebar(props) {
         <React.StrictMode>
             <div className="sidebar">
                 <h1>{title}</h1>
-                <ServiceList serviceItems={serviceItems} />
+                <ServiceList>
+                    {serviceItems.slice()}
+                </ServiceList>
             </div>
         </React.StrictMode>
     );
 }
 
 function ServiceList(props) {
-    const serviceItems = props.serviceItems.slice();
-
     return (
         <div className="service-list">
-            {serviceItems}
+            {props.children}
         </div>
     );
 }
@@ -46,3 +41,5 @@ function ServiceItem(props) {
         </button>
     );
 }
+
+export default Sidebar;
