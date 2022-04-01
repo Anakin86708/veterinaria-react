@@ -1,0 +1,21 @@
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    max-width: 25%;
+    height: 100%;
+
+    background-color: rgba(230, 230, 230, 0.5);
+
+    padding: 15px;
+}
+
+.service-list {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    padding-left: 15px;
+}
