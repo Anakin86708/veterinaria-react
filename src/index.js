@@ -1,23 +1,24 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
+import AnimaisView from './componentes/AnimaisView/AnimaisView';
+import EspeciesView from './componentes/EspeciesView/EspeciesView';
 import MainView from './componentes/MainView/MainView';
-import Sidebar  from './componentes/Sidebar/Sidebar';
+import Sidebar from './componentes/Sidebar/Sidebar';
+import VeterinarioView from './componentes/VeterinarioVIew/VeterinarioView';
 import './index.css';
 
 const App = function () {
     const [selectedView, setSelectedView] = useState(null);
     const serviceName2View = new Map([
-        ['Clientes', <MainView title="Clientes"/>],
-        ['Animais', null],
-        ['Espécies', null],
-        ['Consultas', null],
-        ['Veterinários', null]
+        ['Clientes', <MainView title="Clientes" />],
+        ['Animais', <AnimaisView />],
+        ['Espécies', <EspeciesView />],
+        ['Consultas', <MainView title="Consultas" />],
+        ['Veterinários', <VeterinarioView />]
     ]);
 
     const handleClickOnService = function (serviceName) {
-        console.log("Received: " + serviceName);
         const view = serviceName2View.get(serviceName);
-        console.log(view);
         setSelectedView(view);
     }
 

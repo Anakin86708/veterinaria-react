@@ -11,7 +11,7 @@ const Sidebar =  function (props) {
 
     return (
         <React.StrictMode>
-            <div className="sidebar">
+            <div className="navbar-toggler sidebar">
                 <h1>{title}</h1>
                 <ServiceList>
                     {serviceItems.slice()}

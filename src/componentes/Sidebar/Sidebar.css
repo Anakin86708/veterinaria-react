@@ -11,11 +11,17 @@
     padding: 15px;
 }
 
+.sidebar > h1 {
+    align-self: flex-start;
+}
+
 .service-list {
+    align-self: flex-start;
     display: flex;
     flex: 1;
     flex-direction: column;
     justify-content: space-evenly;
 
     padding-left: 15px;
+    width: 100%;
 }
