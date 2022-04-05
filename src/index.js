@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import AnimaisView from './componentes/AnimaisView/AnimaisView';
+import ClientesView from './componentes/ClientesView/ClientesView';
+import ConsultasView from './componentes/ConsultasView/ConsultasView';
 import EspeciesView from './componentes/EspeciesView/EspeciesView';
-import MainView from './componentes/MainView/MainView';
 import Sidebar from './componentes/Sidebar/Sidebar';
 import VeterinarioView from './componentes/VeterinarioVIew/VeterinarioView';
 import './index.css';
@@ -10,10 +11,10 @@ import './index.css';
 const App = function () {
     const [selectedView, setSelectedView] = useState(null);
     const serviceName2View = new Map([
-        ['Clientes', <MainView title="Clientes" />],
+        ['Clientes', <ClientesView />],
         ['Animais', <AnimaisView />],
         ['Espécies', <EspeciesView />],
-        ['Consultas', <MainView title="Consultas" />],
+        ['Consultas', <ConsultasView />],
         ['Veterinários', <VeterinarioView />]
     ]);
 

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import './EspeciesView.css'
 import MainView from "../MainView/MainView";
 import Item from "../Item/Item";
 import getEspeciesData from "./getEspeciesData";

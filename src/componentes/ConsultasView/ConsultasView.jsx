@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
 import MainView from "../MainView/MainView";
 import Item from "../Item/Item";
-import getVeterinarioData from "./getVeterinarioData";
+import getConsultasData from "./getConsultasData";
 
-const VeterinarioView = function () {
+const ConsultasView = function () {
     const [items, setItems] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const data = await getVeterinarioData();
-                const newItems = data.map(d => <Item title={d.nome} />);
+                const data = await getConsultasData();
+                const newItems = data.map(d => <Item title={d.comentarios} />);
                 setItems(newItems);
             } catch (e) {
                 console.error(e);
@@ -21,10 +21,10 @@ const VeterinarioView = function () {
     }, []);
 
     return (
-        <MainView title="Veterinário">
+        <MainView title="Consultas">
             {items}
         </MainView>
     );
 }
 
-export default VeterinarioView;
+export default ConsultasView;
