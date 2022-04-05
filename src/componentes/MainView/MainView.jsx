@@ -1,9 +1,11 @@
 import React from "react";
+import EmptyListComponent from "../MessageListComponent/variants/EmptyListComponent/EmptyListComponent";
 import './MainView.css'
 
 const MainView = function (props) {
     const title = props.title;
     const onclick = props.onClickAdd;
+    const content = hasContent(props.children) ? props.children : <EmptyListComponent/>;
 
     return (
         <div className="container-fluid main-view">
@@ -13,10 +15,14 @@ const MainView = function (props) {
             </div>
             <hr />
             <div className="item-list">
-                {props.children}
+                {content}
             </div>
         </div>
     )
+}
+
+const hasContent = function (children){
+    return children.length > 0;
 }
 
 export default MainView;

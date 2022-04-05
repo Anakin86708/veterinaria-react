@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import MainView from "../MainView/MainView";
-import Item from "../Item/Item";
+import Item from "../../../Item/Item";
+import ErrorListComponent from "../../../MessageListComponent/variants/ErrorListComponent/ErrorListComponent";
+import MainView from "../../MainView";
 import getVeterinarioData from "./getVeterinarioData";
 
-const VeterinarioView = function () {
+const VeterinarioView = function (props) {
     const [items, setItems] = useState([]);
 
     useEffect(() => {
@@ -14,7 +15,7 @@ const VeterinarioView = function () {
                 setItems(newItems);
             } catch (e) {
                 console.error(e);
-                setItems([<Item title='Error' />]);
+                setItems([<ErrorListComponent reason={e.toString()}/>]);
             }
         }
         fetchData();

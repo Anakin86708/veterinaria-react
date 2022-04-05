@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
-import AnimaisView from './componentes/AnimaisView/AnimaisView';
-import ClientesView from './componentes/ClientesView/ClientesView';
-import ConsultasView from './componentes/ConsultasView/ConsultasView';
-import EspeciesView from './componentes/EspeciesView/EspeciesView';
+import AnimaisView from './componentes/MainView/variants/AnimaisView/AnimaisView';
+import ClientesView from './componentes/MainView/variants/ClientesView/ClientesView';
+import ConsultasView from './componentes/MainView/variants/ConsultasView/ConsultasView';
+import EspeciesView from './componentes/MainView/variants/EspeciesView/EspeciesView';
+import VeterinarioView from './componentes/MainView/variants/VeterinarioView/VeterinarioView';
 import Sidebar from './componentes/Sidebar/Sidebar';
-import VeterinarioView from './componentes/VeterinarioVIew/VeterinarioView';
 import './index.css';
 
 const App = function () {
