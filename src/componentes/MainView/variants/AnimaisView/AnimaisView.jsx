@@ -11,7 +11,7 @@ const AnimaisView = function (props) {
         const fetchData = async () => {
             try {
                 const data = await getAnimaisData();
-                const newItems = data.map(d => <Item title={d.nome} />);
+                const newItems = data.map(d => <Item title={d.nome} key={d.id}/>);
                 setItems(newItems);
             } catch (e) {
                 console.error(e);

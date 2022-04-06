@@ -29,4 +29,8 @@ const getAuthData = function () {
     }
 }
 
+// TODO
+// Criar uma tela inicial de autenticação para pegar o token
+// Manter o token na session como text
+
 export default getEspeciesData;

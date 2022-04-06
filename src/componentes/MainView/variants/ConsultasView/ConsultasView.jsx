@@ -11,7 +11,7 @@ const ConsultasView = function (props) {
         const fetchData = async () => {
             try {
                 const data = await getConsultasData();
-                const newItems = data.map(d => <Item title={d.comentarios} />);
+                const newItems = data.map(d => <Item title={d.comentarios} key={d.id}/>);
                 setItems(newItems);
             } catch (e) {
                 console.error(e);

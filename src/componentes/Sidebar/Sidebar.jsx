@@ -6,7 +6,7 @@ const Sidebar =  function (props) {
     const mapServices = props.mapServices;
     const servicesNames = [...mapServices.keys()];
     const serviceItems = servicesNames.map((name, index) =>
-        <ServiceItem name={name} onClick={() => props.onClickOnService(name)} />
+        <ServiceItem name={name} onClick={() => props.onClickOnService(name)} key={name}/>
     );
 
     return (

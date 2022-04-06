@@ -1,12 +1,11 @@
 import React from "react";
+import dateConverter from "../../../../adapters/dateConverter/dateConverter";
 import InformationView from "../../InformationView";
 import './ClienteInformationView.css';
 
 const ClienteInformationView = function (props) {
     const data = props.data;
-    const dataNascimento = Date.now();
-    console.log('Data from prop: ' + data.dataNascimento);
-    console.log('Data formated: ' + dataNascimento);
+    const dataNascimento = dateConverter(data.dataNascimento);
     return (
         <InformationView>
             <form className="form-cliente">
