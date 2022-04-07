@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import InformationView from "../../../InformationView/InformationView";
 import ClienteInformationView from "../../../InformationView/variants/ClienteInformationView/ClienteInformationView";
 import Item from "../../../Item/Item";
 import ErrorListComponent from "../../../MessageListComponent/variants/ErrorListComponent/ErrorListComponent";
@@ -11,12 +10,18 @@ const ClientesView = function (props) {
     const [showModal, setShowModal] = useState(false);
     const [selectedData, setSelectedData] = useState(null);
 
-    const setSelectedItem = function (data) {
-        setSelectedData(data);
-        setShowModal(true);
-    }
-    
+
     useEffect(() => {
+        const setSelectedItem = function (data) {
+            setSelectedData(data);
+
+            if (data.id === selectedData?.id) {
+                setShowModal(!showModal);
+            } else {
+                setShowModal(true);
+            }
+        }
+
         const fetchData = async () => {
             try {
                 const data = await getClientesData();
@@ -24,18 +29,18 @@ const ClientesView = function (props) {
                 setItems(newItems);
             } catch (e) {
                 console.error(e);
-                setItems([<ErrorListComponent reason={e.toString()}/>]);
+                setItems([<ErrorListComponent reason={e.toString()} />]);
             }
         }
         fetchData();
-    }, []);
 
+    }, [selectedData?.id, showModal]);
     return (
         <MainView title="Clientes">
             {items}
-            {showModal ? 
-            <ClienteInformationView data={selectedData}/>
-            : null}
+            {showModal ?
+                <ClienteInformationView data={selectedData} />
+                : null}
         </MainView>
     );
 }

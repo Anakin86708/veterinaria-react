@@ -11,7 +11,7 @@ const EspeciesView = function (props) {
         const fetchData = async () => {
             try {
                 const data = await getEspeciesData();
-                const newItems = data.map(d => <Item title={d.comentarios} key={d.id}/>);
+                const newItems = data.map(d => <Item title={d.nome} key={d.id}/>);
                 setItems(newItems);
             } catch (e) {
                 console.error(e);
