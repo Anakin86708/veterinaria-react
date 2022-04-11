@@ -5,7 +5,8 @@ import './MainView.css'
 const MainView = function (props) {
     const title = props.title;
     const onclick = props.onClickAdd;
-    const content = hasContent(props.children) ? props.children : <EmptyListComponent/>;
+    const content = hasContent(props.children) ? props.children : <EmptyListComponent />;
+    const modal = props.modal;
 
     return (
         <div className="container-fluid main-view">
@@ -17,11 +18,12 @@ const MainView = function (props) {
             <div className="item-list">
                 {content}
             </div>
+            {modal}
         </div>
     )
 }
 
-const hasContent = function (children){
+const hasContent = function (children) {
     return children.length > 0;
 }
 

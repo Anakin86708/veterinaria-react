@@ -34,12 +34,13 @@ const EspeciesView = function (props) {
         fetchData();
     }, [selectedData?.id, showModal]);
 
+    const modal = showModal ?
+        <EspeciesInformationView data={selectedData} onClose={() => setShowModal(false)}/>
+        : null;
+
     return (
-        <MainView title="Espécies">
+        <MainView title="Espécies" modal={modal}>
             {items}
-            {showModal ?
-                <EspeciesInformationView data={selectedData} />
-                : null}
         </MainView>
     );
 }

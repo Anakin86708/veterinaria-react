@@ -3,9 +3,10 @@ import InformationView from "../../InformationView";
 
 const VeterinarioInformationView = function (props) {
     const data = props.data;
+    const onClose = props.onClose;
     
     return (
-        <InformationView>
+        <InformationView onClose={() => onClose}>
             <form className="form-animais">
                 <fieldset>
                     <label htmlFor="fNome">Nome</label>

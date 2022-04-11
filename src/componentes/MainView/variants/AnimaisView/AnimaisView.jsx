@@ -34,12 +34,13 @@ const AnimaisView = function (props) {
         fetchData();
     }, [selectedData?.id, showModal]);
 
+    const modal = showModal ?
+        <AnimaisInformationView data={selectedData} onClose={() => setShowModal(false)} />
+        : null;
+
     return (
-        <MainView title="Animais">
+        <MainView title="Animais" modal={modal}>
             {items}
-            {showModal ?
-                <AnimaisInformationView data={selectedData} />
-                : null}
         </MainView>
     )
 }

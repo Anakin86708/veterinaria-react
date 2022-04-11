@@ -34,13 +34,13 @@ const VeterinarioView = function (props) {
         fetchData();
     }, [selectedData?.id, showModal]);
 
+    const modal = showModal ?
+        <VeterinarioInformationView data={selectedData} onClose={() => setShowModal(false)}/>
+        : null;
+
     return (
-        <MainView title="Veterinário">
+        <MainView title="Veterinário" modal={modal}>
             {items}
-            {showModal ?
-                <VeterinarioInformationView data={selectedData} />
-                : null
-            }
         </MainView>
     );
 }

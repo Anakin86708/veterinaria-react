@@ -8,6 +8,7 @@ import getEspeciesData from "./getEspeciesData";
 const AnimaisInformationView = function (props) {
     const [clientes, setClientes] = useState([]);
     const [especies, setEspecies] = useState([]);
+    const onClose = props.onClose;
     const data = props.data;
     const dataNascimento = dateConverter(data.dataNascimento);
 
@@ -15,7 +16,7 @@ const AnimaisInformationView = function (props) {
     setOptionsEspecies(setEspecies, data.especie.id);
 
     return (
-        <InformationView>
+        <InformationView onClose={() => onClose}>
             <form className="form-animais">
                 <fieldset>
                     <label htmlFor="fNome">Nome</label>

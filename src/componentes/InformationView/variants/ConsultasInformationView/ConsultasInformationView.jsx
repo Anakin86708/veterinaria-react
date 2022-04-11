@@ -7,6 +7,7 @@ import getVeterinarioData from "./getVeterinarioData";
 const ConsultasInformationView = function (props) {
     const [animais, setAnimais] = useState([]);
     const [veterinarios, setVeterinarios] = useState([]);
+    const onClose = props.onClose;
     const data = props.data;
     const dataAgendada = dateConverter(data.dataAgendada);
 
@@ -28,7 +29,7 @@ const ConsultasInformationView = function (props) {
     setOptionsVeterinarios(setVeterinarios, data.veterinario.id);
 
     return (
-        <InformationView>
+        <InformationView onClose={() => onClose}>
             <form className="form-animais">
                 <fieldset>
                     <label htmlFor="fComentarios">Comentarios</label>

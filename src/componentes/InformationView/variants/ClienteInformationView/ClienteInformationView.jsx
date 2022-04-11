@@ -6,8 +6,9 @@ import './ClienteInformationView.css';
 const ClienteInformationView = function (props) {
     const data = props.data;
     const dataNascimento = dateConverter(data.dataNascimento);
+    const onClose = props.onClose;
     return (
-        <InformationView>
+        <InformationView onClose={() => onClose}>
             <form className="form-cliente">
                 <fieldset>
                     <label htmlFor="fNome">Nome</label>

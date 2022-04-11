@@ -24,22 +24,22 @@ const ConsultasView = function (props) {
         const fetchData = async () => {
             try {
                 const data = await getConsultasData();
-                const newItems = data.map(d => <Item title={d.comentarios} onClick={() => setSelectedItem(d)} key={d.id}/>);
+                const newItems = data.map(d => <Item title={d.comentarios} onClick={() => setSelectedItem(d)} key={d.id} />);
                 setItems(newItems);
             } catch (e) {
                 console.error(e);
-                setItems([<ErrorListComponent reason={e.toString()}/>]);
+                setItems([<ErrorListComponent reason={e.toString()} />]);
             }
         }
         fetchData();
     }, [selectedData?.id, showModal]);
 
+    const modal = showModal ? <ConsultasInformationView data={selectedData} onClose={() => setShowModal(false)} /> : null;
+
+
     return (
-        <MainView title="Consultas">
+        <MainView title="Consultas" modal={modal}>
             {items}
-            {showModal ?
-                <ConsultasInformationView data={selectedData} />
-                : null}
         </MainView>
     );
 }

@@ -35,12 +35,12 @@ const ClientesView = function (props) {
         fetchData();
 
     }, [selectedData?.id, showModal]);
+
+    const modal = showModal ? <ClienteInformationView data={selectedData} onClose={() => setShowModal(false)} /> : null;
+
     return (
-        <MainView title="Clientes">
+        <MainView title="Clientes" modal={modal}>
             {items}
-            {showModal ?
-                <ClienteInformationView data={selectedData} />
-                : null}
         </MainView>
     );
 }
