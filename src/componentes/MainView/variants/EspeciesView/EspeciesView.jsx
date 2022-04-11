@@ -35,11 +35,16 @@ const EspeciesView = function (props) {
     }, [selectedData?.id, showModal]);
 
     const modal = showModal ?
-        <EspeciesInformationView data={selectedData} onClose={() => setShowModal(false)}/>
+        <EspeciesInformationView data={selectedData} onClose={() => setShowModal(false)} />
         : null;
 
+    const onClickAdd = function () {
+        setSelectedData({nome: ""});
+        setShowModal(true);
+    }
+
     return (
-        <MainView title="Espécies" modal={modal}>
+        <MainView title="Espécies" modal={modal} onClickAdd={onClickAdd}>
             {items}
         </MainView>
     );
