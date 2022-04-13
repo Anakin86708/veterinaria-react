@@ -40,10 +40,10 @@ const AnimaisView = function (props) {
 
     const onClickAdd = function () {
         const date = new Date();
-        const formatedDate = date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear();
+        const formattedDate = date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear();
         setSelectedData({
             nome: "",
-            dataNascimento: formatedDate,
+            dataNascimento: formattedDate,
             sexo: "",
             especie: "",
             clientePertencente: ""

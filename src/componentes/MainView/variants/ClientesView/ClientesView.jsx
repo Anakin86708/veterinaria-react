@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { dateConverter } from "../../../../adapters/dateConverter/dateConverter";
 import ClienteInformationView from "../../../InformationView/variants/ClienteInformationView/ClienteInformationView";
 import Item from "../../../Item/Item";
 import ErrorListComponent from "../../../MessageListComponent/variants/ErrorListComponent/ErrorListComponent";
@@ -38,8 +39,22 @@ const ClientesView = function (props) {
 
     const modal = showModal ? <ClienteInformationView data={selectedData} onClose={() => setShowModal(false)} /> : null;
 
+    const onClickAdd = function () {
+        const date = new Date();
+        const formattedDate = date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear();
+        setSelectedData({
+            nome: "",
+            dataNascimento: formattedDate,
+            email: "",
+            endereco: "",
+            telefone: ""
+        });
+        setShowModal(true);
+    }
+
+
     return (
-        <MainView title="Clientes" modal={modal}>
+        <MainView title="Clientes" modal={modal} onClickAdd={onClickAdd}>
             {items}
         </MainView>
     );
