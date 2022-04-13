@@ -1,5 +1,5 @@
 import React from "react";
-import dateConverter from "../../../../adapters/dateConverter/dateConverter";
+import { dateConverter } from "../../../../adapters/dateConverter/dateConverter";
 import InformationView from "../../InformationView";
 import './ClienteInformationView.css';
 

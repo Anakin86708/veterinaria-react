@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import dateConverter from "../../../../adapters/dateConverter/dateConverter";
+import { dateConverter } from "../../../../adapters/dateConverter/dateConverter";
 import InformationView from "../../InformationView";
 import getAnimaisData from "./getAnimaisData";
 import getVeterinarioData from "./getVeterinarioData";

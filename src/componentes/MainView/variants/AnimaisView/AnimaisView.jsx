@@ -38,8 +38,21 @@ const AnimaisView = function (props) {
         <AnimaisInformationView data={selectedData} onClose={() => setShowModal(false)} />
         : null;
 
+    const onClickAdd = function () {
+        const date = new Date();
+        const formatedDate = date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear();
+        setSelectedData({
+            nome: "",
+            dataNascimento: formatedDate,
+            sexo: "",
+            especie: "",
+            clientePertencente: ""
+        });
+        setShowModal(true);
+    }
+
     return (
-        <MainView title="Animais" modal={modal}>
+        <MainView title="Animais" modal={modal} onClickAdd={onClickAdd}>
             {items}
         </MainView>
     )
