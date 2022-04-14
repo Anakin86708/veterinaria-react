@@ -1,0 +1,14 @@
+FROM node:17-alpine AS build
+WORKDIR /app
+ENV PATH /usr/src/app/node_modules/.bin:$PATH
+
+COPY . .
+
+RUN npm install
+RUN npm run build:local
+
+# DEPLOY
+FROM nginx:latest as deploy
+EXPOSE 80
+WORKDIR /usr/share/nginx/html
+COPY --from=build /app/build .
