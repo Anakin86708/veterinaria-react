@@ -15,6 +15,10 @@
     align-self: flex-start;
 }
 
+.sidebar > p {
+    align-self: center;
+}
+
 .service-list {
     align-self: flex-start;
     display: flex;

@@ -35,11 +35,20 @@ const VeterinarioView = function (props) {
     }, [selectedData?.id, showModal]);
 
     const modal = showModal ?
-        <VeterinarioInformationView data={selectedData} onClose={() => setShowModal(false)}/>
+        <VeterinarioInformationView data={selectedData} onClose={() => setShowModal(false)} />
         : null;
 
+    const onClickAdd = function () {
+        setSelectedData({
+            nome: "",
+            endereco: "",
+            telefone: ""
+        });
+        setShowModal(true);
+    }
+
     return (
-        <MainView title="Veterinário" modal={modal}>
+        <MainView title="Veterinário" modal={modal} onClickAdd={onClickAdd}>
             {items}
         </MainView>
     );

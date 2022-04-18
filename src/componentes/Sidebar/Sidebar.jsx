@@ -16,6 +16,7 @@ const Sidebar =  function (props) {
                 <ServiceList>
                     {serviceItems.slice()}
                 </ServiceList>
+                <p>version 0.0.2</p>
             </div>
         </React.StrictMode>
     );
