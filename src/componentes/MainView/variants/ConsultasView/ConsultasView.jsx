@@ -10,6 +10,8 @@ const ConsultasView = function (props) {
     const [showModal, setShowModal] = useState(false);
     const [selectedData, setSelectedData] = useState(null);
 
+
+
     useEffect(() => {
         const setSelectedItem = function (data) {
             setSelectedData(data);
@@ -36,9 +38,20 @@ const ConsultasView = function (props) {
 
     const modal = showModal ? <ConsultasInformationView data={selectedData} onClose={() => setShowModal(false)} /> : null;
 
-
+    const onClickAdd = function () {
+        const date = new Date();
+        const formattedDate = date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear();
+        setSelectedData({
+            comentarios: "",
+            dataAgendada: formattedDate,
+            telefone: "",
+            animal: "",
+            veterinario: ""
+        });
+        setShowModal(true);
+    }
     return (
-        <MainView title="Consultas" modal={modal}>
+        <MainView title="Consultas" modal={modal} onClickAdd={onClickAdd}>
             {items}
         </MainView>
     );
