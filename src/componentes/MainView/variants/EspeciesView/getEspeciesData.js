@@ -1,5 +1,5 @@
 const getEspeciesData = async function () {
-    const url = "http://localhost:8765/especies"
+    const url = process.env.REACT_APP_URL_ESPECIE;
     const response = await fetch(url);
     if (response.ok)
         return await response.json()

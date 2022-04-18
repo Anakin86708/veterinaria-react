@@ -95,7 +95,7 @@ services:
       - 'ANIMAL_SERVICE_URL=http://animal-service'
       - 'VETERINARIO_SERVICE_URL=http://veterinario-service'
   react-front:
-    image: 'anakin86708/veterinaria-react:0.0.1'
+    image: 'anakin86708/veterinaria-react:0.0.2'
     ports:
       - '8080:80'
     restart: 'no'
