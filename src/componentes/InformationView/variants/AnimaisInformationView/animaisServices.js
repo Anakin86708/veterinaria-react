@@ -1,20 +1,27 @@
 const insertNewAnimal = async function (idCliente, data) {
     const url = "http://localhost:8765/animais/clientes/" + idCliente;
     const filterData = Object.fromEntries(
-        Object.entries(formatDate(data)).filter(([k]) => k !== 'clientePertencente')
+        Object.entries(formatData(data)).filter(([k]) => k !== 'clientePertencente')
     );
     const requestOptions = {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify(filterData)
     }
+    
+    console.log('url: ' + url);
+    console.log('Payload: ');
+    console.log(filterData);
+    console.log('Options: ');
+    console.log(requestOptions);
+
     const response = await fetch(url, requestOptions);
     return response;
 }
 
-const formatDate = function(data) {
+const formatData = function(data) {
     return {...data, "especie": {"id": data["especie"]}}
 }
 
