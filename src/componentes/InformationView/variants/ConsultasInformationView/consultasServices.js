@@ -18,4 +18,14 @@ const formatData = function(data) {
     return {...data, "animal": {"id": data["animal"]}, "veterinario": {"id": data["veterinario"]}};
 }
 
-export {insertNewConsulta};
+const deleteConsulta = async function(id) {
+    const url = 'http://localhost:8765/consultas/'+ id;
+    const requestOptions = {
+        method: "DELETE"
+    }
+    const response = await fetch(url, requestOptions);
+    return response;
+}
+
+
+export {insertNewConsulta, deleteConsulta};

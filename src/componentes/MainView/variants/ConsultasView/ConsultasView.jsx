@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ConsultasInformationView from "../../../InformationView/variants/ConsultasInformationView/ConsultasInformationView";
+import { deleteConsulta } from "../../../InformationView/variants/ConsultasInformationView/consultasServices";
 import Item from "../../../Item/Item";
 import ErrorListComponent from "../../../MessageListComponent/variants/ErrorListComponent/ErrorListComponent";
 import MainView from "../../MainView";
@@ -23,10 +24,21 @@ const ConsultasView = function (props) {
             }
         }
 
+        const handleClickDelete = function (data) {
+            const response = deleteConsulta(data.id);
+            response.then(r => {
+                if (r.ok) {
+                    fetchData();
+                } else {
+                    console.log("Unable to remove");
+                }
+            });
+        }
+
         const fetchData = async () => {
             try {
                 const data = await getConsultasData();
-                const newItems = data.map(d => <Item title={d.comentarios} onClick={() => setSelectedItem(d)} key={d.id} />);
+                const newItems = data.map(d => <Item title={d.comentarios} onClick={() => setSelectedItem(d)} onClickDelete={() => { handleClickDelete(d) }} key={d.id} />);
                 setItems(newItems);
             } catch (e) {
                 console.error(e);

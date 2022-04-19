@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import AnimaisInformationView from "../../../InformationView/variants/AnimaisInformationView/AnimaisInformationView";
+import { deleteAnimais } from "../../../InformationView/variants/AnimaisInformationView/animaisServices";
 import Item from "../../../Item/Item";
 import ErrorListComponent from "../../../MessageListComponent/variants/ErrorListComponent/ErrorListComponent";
 import MainView from "../../MainView";
@@ -21,10 +22,22 @@ const AnimaisView = function (props) {
             }
         }
 
+
+        const handleClickDelete = function (data) {
+            const response = deleteAnimais(data.id);
+            response.then(r => {
+                if (r.ok) {
+                    fetchData();
+                } else {
+                    console.log("Unable to remove");
+                }
+            });
+        }
+
         const fetchData = async () => {
             try {
                 const data = await getAnimaisData();
-                const newItems = data.map(d => <Item title={d.nome} onClick={() => setSelectedItem(d)} key={d.id} />);
+                const newItems = data.map(d => <Item title={d.nome} onClick={() => setSelectedItem(d)} onClickDelete={() => { handleClickDelete(d) }} key={d.id} />);
                 setItems(newItems);
             } catch (e) {
                 console.error(e);

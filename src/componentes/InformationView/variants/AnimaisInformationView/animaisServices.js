@@ -25,4 +25,13 @@ const formatData = function(data) {
     return {...data, "especie": {"id": data["especie"]}}
 }
 
-export {insertNewAnimal};
+const deleteAnimais = async function(id) {
+    const url = 'http://localhost:8765/animais/'+ id;
+    const requestOptions = {
+        method: "DELETE"
+    }
+    const response = await fetch(url, requestOptions);
+    return response;
+}
+
+export {insertNewAnimal, deleteAnimais};

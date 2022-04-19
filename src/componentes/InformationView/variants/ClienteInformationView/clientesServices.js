@@ -11,4 +11,13 @@ const insertNewCliente = async function (data) {
     return response;
 }
 
-export {insertNewCliente};
+const deleteCliente = async function (id) {
+    const url = 'http://localhost:8765/clientes/'+ id;
+    const requestOptions = {
+        method: "DELETE"
+    }
+    const response = await fetch(url, requestOptions);
+    return response;
+}
+
+export {insertNewCliente, deleteCliente};

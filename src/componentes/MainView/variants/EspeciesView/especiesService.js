@@ -11,6 +11,16 @@ const insertNewEspecie = async function (data) {
     return response;
 }
 
+const deleteEspecie = async function (id) {
+    const url = 'http://localhost:8765/especies/' + id;
+    const requestOptions = {
+        method: "DELETE"
+    }
+    const response = await fetch(url, requestOptions);
+    return response;
+}
+
 export {
-    insertNewEspecie
+    insertNewEspecie,
+    deleteEspecie
 };

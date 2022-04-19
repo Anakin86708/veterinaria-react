@@ -3,6 +3,7 @@ import EspeciesInformationView from "../../../InformationView/variants/EspeciesI
 import Item from "../../../Item/Item";
 import ErrorListComponent from "../../../MessageListComponent/variants/ErrorListComponent/ErrorListComponent";
 import MainView from "../../MainView";
+import { deleteEspecie } from "./especiesService";
 import getEspeciesData from "./getEspeciesData";
 
 const EspeciesView = function (props) {
@@ -21,10 +22,21 @@ const EspeciesView = function (props) {
             }
         }
 
+        const handleClickDelete = function (data) {
+            const response = deleteEspecie(data.id);
+            response.then(r => {
+                if (r.ok) {
+                    fetchData();
+                } else {
+                    console.log("Unable to remove");
+                }
+            });
+        }
+
         const fetchData = async () => {
             try {
                 const data = await getEspeciesData();
-                const newItems = data.map(d => <Item title={d.nome} onClick={() => setSelectedItem(d)} key={d.id} />);
+                const newItems = data.map(d => <Item title={d.nome} onClick={() => setSelectedItem(d)} onClickDelete={() => { handleClickDelete(d) }} key={d.id} />);
                 setItems(newItems);
             } catch (e) {
                 console.error(e);
@@ -39,7 +51,7 @@ const EspeciesView = function (props) {
         : null;
 
     const onClickAdd = function () {
-        setSelectedData({nome: ""});
+        setSelectedData({ nome: "" });
         setShowModal(true);
     }
 
