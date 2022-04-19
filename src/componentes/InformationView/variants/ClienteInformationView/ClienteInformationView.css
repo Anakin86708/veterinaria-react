@@ -1,0 +1,9 @@
+.form-cliente {
+    display: flex;
+    flex-direction: column;
+}
+
+form > fieldset {
+    display: flex;
+    flex-direction: column;
+}

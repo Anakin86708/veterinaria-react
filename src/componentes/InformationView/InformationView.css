@@ -1,0 +1,45 @@
+.bg-information-view {
+    margin: -5px;
+    padding: 0;
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.55);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(14.6px);
+    -webkit-backdrop-filter: blur(14.6px);
+}
+
+.information-view {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    position: fixed;
+
+    background-color: rgb(129, 129, 127);
+    border-radius: 15px;
+    padding: 15px;
+    width: 45%;
+    z-index: 9;
+}
+
+.top-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.btn-edit {
+    padding: 0;
+    background-color: rgb(245, 241, 40);
+}
+
+.btn-close {
+    align-self: flex-end;
+    background-color: rgb(248, 118, 118, 1);
+}

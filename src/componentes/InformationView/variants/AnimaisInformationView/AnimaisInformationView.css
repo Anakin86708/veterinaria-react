@@ -1,0 +1,13 @@
+.form-animais {
+    display: flex;
+    flex-direction: column;
+}
+
+form > fieldset {
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="radio"] {
+    margin-right: 5px;
+}

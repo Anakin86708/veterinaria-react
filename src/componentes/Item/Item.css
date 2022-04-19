@@ -1,0 +1,19 @@
+.item {
+    display: flex;
+    flex-direction: row;
+
+    padding: 15px;
+    margin-bottom: 10px;
+    border: solid black;
+    border-radius: 15px;
+}
+
+.item > h2{
+    flex: 1;
+}
+
+.delete {
+    padding: 0px;
+    min-height: 2em;
+    aspect-ratio: 5/2;
+}
